@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Frases en Chino</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #b2babb;f5b041;f7dc6f;f9e79f;FFFDD0; 
+        }
+        
+        .container {
+            text-align: center;
+            width: 80%;
+        }
+        
+        #mandarin-text {
+            font-size: 34px;
+            font-weight: normal; /* Cambia "bold" por "normal" */
+            margin-bottom: 5px;
+        }
+
+        #pinyin-text {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 10px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        #translation {
+            font-size: 20px;
+            color: #ff0000;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        #pinyin-text.show,
+        #translation.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="mandarin-text"></div>
+        <div id="pinyin-text"></div>
+        <div id="translation"></div>
+    </div>
+
+    <!-- Asegúrate de que la ruta del archivo JS sea correcta -->
+    <script src="progreso.js"></script>
+    
+    <script>
+         
+
+
+        const mandarinText = document.getElementById('mandarin-text'); // Error tipográfico: 'mandarin-text'
+        const pinyinText = document.getElementById('pinyin-text');
+        const translation = document.getElementById('translation');
+        let currentPhrase;
+
+        function startCycle() {
+            currentPhrase = Frases.obtenerAleatoria();
+            
+            mandarinText.textContent = currentPhrase.mandarin;
+            pinyinText.classList.remove('show');
+            translation.classList.remove('show');
+
+        
+
+            setTimeout(() => {
+                pinyinText.textContent = currentPhrase.pinyin;
+                translation.textContent = currentPhrase.spanish;
+                pinyinText.classList.add('show');
+                translation.classList.add('show');
+                
+                setTimeout(() => {
+                    pinyinText.classList.remove('show');
+                    translation.classList.remove('show');
+                    setTimeout(startCycle, 100);
+                }, 6000);
+            }, 5000);
+        }
+
+        startCycle();
+    </script>
+</body>
+</html>

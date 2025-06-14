@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Marco Redimensionable con Dragones</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .marco-contenedor {
+      width: 90%;
+      max-width: 900px;
+      height: 90%;
+      padding: 40px;
+      border: 60px solid transparent;
+      box-sizing: border-box;
+      border-image: url('marco-dragon.png') 60 fill stretch;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(255, 255, 255, 0.95);
+    }
+
+    .contenido {
+      text-align: center;
+      font-family: sans-serif;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <div class="marco-contenedor">
+    <div class="contenido">
+      <h1>Contenido Central</h1>
+      <p>Este espacio se adapta al marco, sin superponer los dragones ni deformarlos.</p>
+    </div>
+  </div>
+</body>
+</html>

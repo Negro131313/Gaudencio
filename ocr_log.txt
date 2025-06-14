@@ -1,0 +1,4 @@
+2025-05-06 13:26:15,190 - ERROR - Descarga el modelo EAST y colócalo en el directorio
+2025-05-06 13:26:15,192 - ERROR - Error inicial: Modelo EAST no encontrado
+2025-05-06 13:26:19,493 - ERROR - Descarga el modelo EAST y colócalo en el directorio
+2025-05-06 13:26:19,494 - ERROR - Error inicial: Modelo EAST no encontrado

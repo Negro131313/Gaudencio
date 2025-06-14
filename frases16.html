@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Frases en Chino</title>
+    <audio id="background-music" autoplay>
+        <source src="shang.MP3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+     <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('drage.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-shadow: 1px 1px 3px black;
+    }
+
+    .contenido {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      text-align: center;
+    }
+  </style>
+    <style>
+        #background-music {
+            display: none;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+           
+        }
+
+        .container {
+            text-align: center;
+            width: 80%;
+        }
+
+        #mandarin-text {
+            font-size: 34px;
+            margin-bottom: 5px;
+        }
+
+        #pinyin-text {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        #translation {
+            font-size: 20px;
+            color: #ff0000;
+            opacity: 0;
+            transition: opacity 0.3s;
+            margin-top: 5px;
+            white-space: pre-wrap;
+        }
+
+        #translation.show {
+            opacity: 1;
+        }
+
+   .barra-texto {
+    width: 60%;
+    padding: 8px 16px;
+    margin: 30px auto;
+    display: block;
+    border: 2px solid #999999; /* Gris más oscuro y menos brillante */
+    border-radius: 20px;
+    font-size: 15px;
+    outline: none;
+    background-color: #f5f5f5; /* Fondo claro pero sin brillar */
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+        .barra-texto:focus {
+            border-color: #a0a0a0;
+        }
+
+        .verde {
+            border-color: green !important;
+        }
+
+        .rojo {
+            border-color: red !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="text" class="barra-texto" placeholder="Traduce aquí..." id="traductor-input">
+        <div id="mandarin-text"></div>
+        <div id="pinyin-text"></div>
+        <div id="translation"></div>
+    </div>
+
+    <script src="hsk6.js"></script>
+
+    <script>
+        const mandarinText = document.getElementById('mandarin-text');
+        const pinyinText = document.getElementById('pinyin-text');
+        const translation = document.getElementById('translation');
+        const input = document.getElementById('traductor-input');
+        let currentPhrase = null;
+        const tiempoEspera = 1000;
+
+        function mostrarNuevaFrase() {
+            input.value = "";
+            input.classList.remove('verde', 'rojo');
+            translation.classList.remove('show');
+            currentPhrase = Frases.obtenerAleatoria();
+            mandarinText.textContent = currentPhrase.mandarin;
+            pinyinText.textContent = currentPhrase.pinyin;
+            translation.textContent = "";
+        }
+
+        input.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                const progreso = Progresso.cargar();
+                const respuesta = input.value.trim().toLowerCase();
+                const correcta = currentPhrase.spanish.trim().toLowerCase();
+
+                if (respuesta === correcta) {
+                    const contadorActual = (progreso[currentPhrase.mandarin] || 0) + 1;
+                    progreso[currentPhrase.mandarin] = contadorActual;
+                    input.classList.add('verde');
+                    translation.textContent = `${currentPhrase.spanish} (${contadorActual}/5) ✅`;
+                    
+                    if (contadorActual === 5) {
+                        translation.textContent += '\n¡Dominada! 🎉';
+                    }
+                } else {
+                    progreso[currentPhrase.mandarin] = 0;
+                    input.classList.add('rojo');
+                    translation.textContent = `${currentPhrase.spanish} ❌ (Reiniciado a 0)`;
+                }
+
+                Progresso.guardar(progreso);
+                translation.classList.add('show');
+                setTimeout(mostrarNuevaFrase, tiempoEspera);
+            }
+        });
+
+        mostrarNuevaFrase();
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const audio = document.getElementById('background-music');
+            const input = document.getElementById('traductor-input');
+            let musicaYaActivada = false;
+            let siguienteReproduccion = false;
+
+            function intentarReproducirMusica() {
+                if (!musicaYaActivada) {
+                    audio.play().then(() => {
+                        musicaYaActivada = true;
+                        console.log("🎵 Música activada con la interacción");
+                    }).catch(error => {
+                        console.warn("No se pudo activar la música:", error);
+                    });
+                }
+            }
+
+            // Cambia la canción al terminar la primera
+            audio.addEventListener('ended', () => {
+                if (!siguienteReproduccion) {
+                    siguienteReproduccion = true;
+                    audio.src = 'milado.mp3';
+                    audio.play();
+                }
+            });
+
+            input.addEventListener('focus', intentarReproducirMusica);
+            input.addEventListener('keydown', intentarReproducirMusica);
+        });
+    </script>
+</body>
+</html>

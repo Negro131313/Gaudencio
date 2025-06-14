@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Fondo que cambia</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+            background-position: center;
+            transition: background-image 1s ease-in-out;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    const images = [
+        'img1.jpg',
+        'img2.jpg',
+        'img3.jpg'
+    ];
+
+    let index = 0;
+
+    function changeBackground() {
+        document.body.style.backgroundImage = `url('${images[index]}')`;
+        index = (index + 1) % images.length;
+    }
+
+    // Cambiar cada 200 segundos (200,000 milisegundos)
+    changeBackground(); // Cambiar de inmediato
+    setInterval(changeBackground, 200000);
+</script>
+
+</body>
+</html>

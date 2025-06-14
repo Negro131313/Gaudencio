@@ -1,0 +1,62 @@
+2025-04-27 22:25:26,806 - INFO - Tesseract-OCR configurado correctamente
+2025-04-27 22:25:26,807 - INFO - Iniciando análisis de imágenes...
+2025-04-27 22:25:27,858 - INFO - Imagen movida: recortado_1.000.jpg
+2025-04-27 22:25:28,708 - INFO - Imagen movida: recortado_1.1.png
+2025-04-27 22:25:29,367 - INFO - Imagen movida: recortado_1.2.png
+2025-04-27 22:25:29,926 - INFO - Imagen movida: recortado_1.3.png
+2025-04-27 22:25:30,545 - INFO - Imagen movida: recortado_1.4.png
+2025-04-27 22:25:30,975 - INFO - Imagen movida: recortado_1.5.png
+2025-04-27 22:25:30,976 - INFO - Proceso completado
+2025-04-27 22:35:26,930 - INFO - Tesseract-OCR configurado correctamente
+2025-04-27 22:35:26,930 - INFO - Iniciando análisis de imágenes...
+2025-04-27 22:35:28,349 - INFO - Texto no encontrado en recortado_1.000.jpg
+2025-04-27 22:35:28,351 - INFO - Imagen movida: recortado_1.000.jpg
+2025-04-27 22:35:29,609 - INFO - Texto no encontrado en recortado_1.1.png
+2025-04-27 22:35:29,612 - INFO - Imagen movida: recortado_1.1.png
+2025-04-27 22:35:30,362 - INFO - Texto no encontrado en recortado_1.2.png
+2025-04-27 22:35:30,364 - INFO - Imagen movida: recortado_1.2.png
+2025-04-27 22:35:31,131 - INFO - Texto no encontrado en recortado_1.3.png
+2025-04-27 22:35:31,133 - INFO - Imagen movida: recortado_1.3.png
+2025-04-27 22:35:31,832 - INFO - Texto no encontrado en recortado_1.4.png
+2025-04-27 22:35:31,835 - INFO - Imagen movida: recortado_1.4.png
+2025-04-27 22:35:32,333 - INFO - Texto no encontrado en recortado_1.5.png
+2025-04-27 22:35:32,335 - INFO - Imagen movida: recortado_1.5.png
+2025-04-27 22:35:32,335 - INFO - Proceso completado
+2025-04-27 22:37:29,323 - INFO - Tesseract-OCR configurado correctamente
+2025-04-27 22:37:29,324 - INFO - Iniciando análisis de imágenes...
+2025-04-27 22:37:29,325 - INFO - Proceso completado
+2025-04-27 22:37:42,078 - INFO - Tesseract-OCR configurado correctamente
+2025-04-27 22:37:42,079 - INFO - Iniciando análisis de imágenes...
+2025-04-27 22:37:43,470 - INFO - Texto no encontrado en recortado_1.000.jpg
+2025-04-27 22:37:43,472 - INFO - Imagen movida: recortado_1.000.jpg
+2025-04-27 22:37:44,553 - INFO - Texto no encontrado en recortado_1.1.png
+2025-04-27 22:37:44,555 - INFO - Imagen movida: recortado_1.1.png
+2025-04-27 22:37:45,420 - INFO - Texto no encontrado en recortado_1.2.png
+2025-04-27 22:37:45,421 - INFO - Imagen movida: recortado_1.2.png
+2025-04-27 22:37:45,980 - INFO - Texto no encontrado en recortado_1.3.png
+2025-04-27 22:37:45,983 - INFO - Imagen movida: recortado_1.3.png
+2025-04-27 22:37:46,638 - INFO - Texto no encontrado en recortado_1.4.png
+2025-04-27 22:37:46,639 - INFO - Imagen movida: recortado_1.4.png
+2025-04-27 22:37:47,267 - INFO - Texto no encontrado en recortado_1.5.png
+2025-04-27 22:37:47,268 - INFO - Imagen movida: recortado_1.5.png
+2025-04-27 22:37:47,268 - INFO - Proceso completado
+2025-04-27 22:40:01,139 - INFO - Tesseract-OCR configurado correctamente
+2025-04-27 22:40:01,140 - INFO - Iniciando análisis de imágenes...
+2025-04-27 22:40:02,483 - INFO - Texto no encontrado en recortado_1.000.jpg
+2025-04-27 22:40:02,485 - INFO - Imagen movida: recortado_1.000.jpg
+2025-04-27 22:40:03,569 - INFO - Texto no encontrado en recortado_1.1.png
+2025-04-27 22:40:03,571 - INFO - Imagen movida: recortado_1.1.png
+2025-04-27 22:40:04,341 - INFO - Texto no encontrado en recortado_1.2.png
+2025-04-27 22:40:04,343 - INFO - Imagen movida: recortado_1.2.png
+2025-04-27 22:40:04,926 - INFO - Texto no encontrado en recortado_1.3.png
+2025-04-27 22:40:04,928 - INFO - Imagen movida: recortado_1.3.png
+2025-04-27 22:40:05,636 - INFO - Texto no encontrado en recortado_1.4.png
+2025-04-27 22:40:05,638 - INFO - Imagen movida: recortado_1.4.png
+2025-04-27 22:40:06,191 - INFO - Texto no encontrado en recortado_1.5.png
+2025-04-27 22:40:06,193 - INFO - Imagen movida: recortado_1.5.png
+2025-04-27 22:40:06,194 - INFO - Proceso completado
+2025-04-27 22:41:53,278 - INFO - Tesseract-OCR configurado correctamente
+2025-04-27 22:41:53,279 - INFO - Iniciando análisis de imágenes...
+2025-04-27 22:41:53,827 - INFO - Texto no encontrado en recortado_1.5.png
+2025-04-27 22:41:53,829 - INFO - Imagen movida: recortado_1.5.png
+2025-04-27 22:41:53,829 - INFO - Proceso completado

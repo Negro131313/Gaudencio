@@ -1,54 +1,15 @@
-class Progresso {
-  static guardar(progreso) {
-    localStorage.setItem('progresoChino', JSON.stringify(progreso));
-  }
-
-  static cargar() {
-    const datos = localStorage.getItem('progresoChino');
-    return datos ? JSON.parse(datos) : {};
-  }
-}
-
-class Frases {
-  static lista = [
-    // ▼▼▼ TUS FRASES VAN AQUÍ ▼▼▼
-{
-      mandarin: "我爱你",
-      pinyin: "Wǒ ài nǐ",
-      spanish: "te amo"
-    },
-    {
-      mandarin: "早上好",
-      pinyin: "Zǎoshang hǎo",
-      spanish: "buenos días"
-    },
-    { 
-      mandarin: "你好",
-      pinyin: "Nǐ hǎo", 
-      spanish: "Hola" 
-    },
-    { 
-      mandarin: "谢谢",  
-      pinyin: "Xiè xie", 
-      spanish: "Gracias" 
-    },
-    { 
-      mandarin: "再见", 
-      pinyin: "Zài jiàn", 
-      spanish: "Adiós" 
-    },
-    { 
-      mandarin: "车", 
-      pinyin: "chē", 
-      spanish: "vehículo" 
-    },
-
-    { mandarin: "朋友", pinyin: "Péngyǒu", spanish: "Amigo" },
+window.Frases = {
+    lista: [
+        { mandarin: "你好", pinyin: "Nǐ hǎo", spanish: "Hola" },
+        { mandarin: "谢谢", pinyin: "Xièxie", spanish: "Gracias" },
+        { mandarin: "再见", pinyin: "Zàijiàn", spanish: "Adiós" },
+        { mandarin: "我爱你", pinyin: "Wǒ ài nǐ", spanish: "Te amo" },
+        { mandarin: "朋友", pinyin: "Péngyǒu", spanish: "Amigo" },
              { mandarin: "的", pinyin: "de", spanish: "(partícula posesiva)" },
         { mandarin: "一", pinyin: "yī", spanish: "uno" },
         { mandarin: "是", pinyin: "shì", spanish: "ser" },
         { mandarin: "不", pinyin: "bù", spanish: "no" },
-   
+        { mandarin: "了", pinyin: "le", spanish: "(partícula de tiempo pasado)" },
         { mandarin: "人", pinyin: "rén", spanish: "persona" },
         { mandarin: "我", pinyin: "wǒ", spanish: "yo" },
         { mandarin: "在", pinyin: "zài", spanish: "en/estar" },
@@ -80,7 +41,7 @@ class Frases {
         { mandarin: "下", pinyin: "xià", spanish: "abajo" },
         { mandarin: "以", pinyin: "yǐ", spanish: "usar" },
         { mandarin: "生", pinyin: "shēng", spanish: "nacer/vida" },
-
+        { mandarin: "会", pinyin: "huì", spanish: "saber/reunión" },
         { mandarin: "自", pinyin: "zì", spanish: "desde" },
         { mandarin: "着", pinyin: "zhe", spanish: "(partícula continua)" },
         { mandarin: "去", pinyin: "qù", spanish: "ir" },
@@ -99,14 +60,14 @@ class Frases {
         { mandarin: "心", pinyin: "xīn", spanish: "corazón" },
         { mandarin: "国", pinyin: "guó", spanish: "país" },
         { mandarin: "好", pinyin: "hǎo", spanish: "bueno" },
-
+        { mandarin: "吗", pinyin: "ma", spanish: "(partícula de pregunta)" },
         { mandarin: "多", pinyin: "duō", spanish: "mucho" },
         { mandarin: "天", pinyin: "tiān", spanish: "cielo/día" },
         { mandarin: "手", pinyin: "shǒu", spanish: "mano" },
         { mandarin: "水", pinyin: "shuǐ", spanish: "agua" },
         { mandarin: "电", pinyin: "diàn", spanish: "electricidad" },
         { mandarin: "门", pinyin: "mén", spanish: "puerta" },
-       
+        { mandarin: "开", pinyin: "kāi", spanish: "abrir" },
         { mandarin: "见", pinyin: "jiàn", spanish: "ver" },
         { mandarin: "回", pinyin: "huí", spanish: "regresar" },
         { mandarin: "什", pinyin: "shén", spanish: "qué" },
@@ -125,7 +86,7 @@ class Frases {
         { mandarin: "口", pinyin: "kǒu", spanish: "boca" },
         { mandarin: "女", pinyin: "nǚ", spanish: "mujer" },
         { mandarin: "子", pinyin: "zǐ", spanish: "niño" },
-       
+        { mandarin: "车", pinyin: "chē", spanish: "vehículo" },
         { mandarin: "书", pinyin: "shū", spanish: "libro" },
         { mandarin: "字", pinyin: "zì", spanish: "carácter" },
         { mandarin: "星期一", pinyin: "xīngqī yī", spanish: "lunes" },
@@ -268,7 +229,7 @@ class Frases {
 { mandarin: "来", pinyin: "lái", spanish: "venir" },
 { mandarin: "看", pinyin: "kàn", spanish: "ver" },
 { mandarin: "听", pinyin: "tīng", spanish: "escuchar" },
-
+{ mandarin: "说", pinyin: "shuō", spanish: "decir" },
 { mandarin: "做", pinyin: "zuò", spanish: "hacer" },
 { mandarin: "吃", pinyin: "chī", spanish: "comer" },
 { mandarin: "喝", pinyin: "hē", spanish: "beber" },
@@ -283,7 +244,7 @@ class Frases {
 { mandarin: "穿", pinyin: "chuān", spanish: "vestir" },
 { mandarin: "买", pinyin: "mǎi", spanish: "comprar" },
 { mandarin: "卖", pinyin: "mài", spanish: "vender" },
-
+{ mandarin: "开", pinyin: "kāi", spanish: "abrir/conducir" },
 { mandarin: "关", pinyin: "guān", spanish: "cerrar" },
 { mandarin: "写", pinyin: "xiě", spanish: "escribir" },
 { mandarin: "读", pinyin: "dú", spanish: "leer" },
@@ -424,7 +385,7 @@ class Frases {
 { mandarin: "叫", pinyin: "jiào", spanish: "llamar" },
 { mandarin: "今天", pinyin: "jīntiān", spanish: "hoy" },
 { mandarin: "九", pinyin: "jiǔ", spanish: "nueve" },
-
+{ mandarin: "开", pinyin: "kāi", spanish: "abrir" },
 { mandarin: "看", pinyin: "kàn", spanish: "mirar" },
 { mandarin: "看见", pinyin: "kànjiàn", spanish: "ver" },
 { mandarin: "块", pinyin: "kuài", spanish: "pedazo" },
@@ -444,21 +405,24 @@ class Frases {
 { mandarin: "名字", pinyin: "míngzi", spanish: "nombre" },
 { mandarin: "明天", pinyin: "míngtiān", spanish: "mañana" },
 { mandarin: "哪", pinyin: "nǎ", spanish: "cuál" },
-{ mandarin: "哪儿", pinyin: "nǎr", spanish: "dónde" }
-  
-  ];
+{ mandarin: "哪儿", pinyin: "nǎr", spanish: "dónde" },
+{ mandarin: "那", pinyin: "nà", spanish: "ese/esa" },
+{ mandarin: "苦", pinyin: "kǔ", spanish: "amargo" }  
+{ mandarin: "苦", pinyin: "kǔ", spanish: "amargo" },  
+{ mandarin: "苦", pinyin: "kǔ", spanish: "amargo" },  
+{ mandarin: "苦", pinyin: "kǔ", spanish: "amargo" }  
 
-  static obtenerAleatoria() {
-    const progreso = Progresso.cargar();
-    const frasesDisponibles = this.lista.filter(frase => 
-      (progreso[frase.mandarin] || 0) < 5
-    );
+
+
+
+
+
+
+
+
+    ],
     
-    if (frasesDisponibles.length === 0) {
-      alert('¡Felicidades mi vida, dominaste todo! 💖');
-      return this.lista[0];
+    obtenerAleatoria: function() {
+        return this.lista[Math.floor(Math.random() * this.lista.length)];
     }
-    
-    return frasesDisponibles[Math.floor(Math.random() * frasesDisponibles.length)];
-  }
-}
+};

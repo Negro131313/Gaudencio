@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Frases en Chino</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #b2babb;
+        }
+        
+        .container {
+            text-align: center;
+            width: 80%;
+        }
+        
+        #mandarin-text {
+            font-size: 34px;
+            margin-bottom: 5px;
+        }
+
+        #pinyin-text {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 10px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        #translation {
+            font-size: 20px;
+            color: #ff0000;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        #pinyin-text.show,
+        #translation.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="mandarin-text"></div>
+        <div id="pinyin-text"></div>
+        <div id="translation"></div>
+    </div>
+
+<script src="frases3.js"></script>
+    
+    <script>
+
+        const mandarinText = document.getElementById('mandarin-text');
+        const pinyinText = document.getElementById('pinyin-text');
+        const translation = document.getElementById('translation');
+        let voices = [];
+
+        // Cargar voces disponibles
+        speechSynthesis.onvoiceschanged = () => {
+            voices = speechSynthesis.getVoices();
+        };
+
+        function hablarTexto(texto) {
+            const utterance = new SpeechSynthesisUtterance(texto);
+            utterance.lang = 'zh-CN';
+            
+            // Buscar voz china
+            const chineseVoice = voices.find(voice => 
+                voice.lang === 'zh-CN' || voice.lang.startsWith('zh')
+            );
+            
+            if (chineseVoice) {
+                utterance.voice = chineseVoice;
+            }
+            
+            speechSynthesis.speak(utterance);
+        }
+
+        function startCycle() {
+            const currentPhrase = Frases.obtenerAleatoria();
+            
+            // Mostrar texto chino
+            mandarinText.textContent = currentPhrase.mandarin;
+            
+            // Ocultar pinyin y traducción
+            pinyinText.classList.remove('show');
+            translation.classList.remove('show');
+            
+            // Pronunciar texto
+            hablarTexto(currentPhrase.mandarin);
+
+            // Mostrar pinyin y traducción después de 5 segundos
+            setTimeout(() => {
+                pinyinText.textContent = currentPhrase.pinyin;
+                translation.textContent = currentPhrase.spanish;
+                pinyinText.classList.add('show');
+                translation.classList.add('show');
+            }, 5000);
+
+            // Reiniciar ciclo después de 6 segundos
+            setTimeout(() => {
+                pinyinText.classList.remove('show');
+                translation.classList.remove('show');
+                setTimeout(startCycle, 500); // Breve pausa antes de reiniciar
+            }, 6000);
+        }
+
+        // Iniciar con interacción del usuario
+        document.body.addEventListener('click', () => {
+            if (speechSynthesis.paused) {
+                speechSynthesis.resume();
+            }
+            startCycle();
+        });
+    </script>
+</body>
+</html>

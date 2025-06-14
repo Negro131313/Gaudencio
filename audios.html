@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor de Audio</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            text-align: center;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+        
+        .play-btn {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .play-btn:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+        
+        .play-btn:active {
+            transform: scale(0.98);
+        }
+        
+        .note {
+            margin-top: 20px;
+            color: #666;
+            font-size: 14px;
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Reproductor de Audio</h2>
+        <button class="play-btn" onclick="playAudio()">▶ Reproducir Audio</button>
+        
+        <div class="note">
+            <strong>Nota importante:</strong> Debido a las restricciones de seguridad de los navegadores, necesitas ejecutar esta página a través de un servidor web local para que funcione correctamente con archivos locales.
+        </div>
+    </div>
+
+    <script>
+        function playAudio() {
+            try {
+                // Intenta crear el objeto Audio
+                const audio = new Audio();
+                
+                // IMPORTANTE: Usa una ruta relativa o servidor web
+                // Cambia esta ruta según la ubicación de tu archivo
+                audio.src = "file:///C:/Users/Julio/Desktop/rembg_project/ingles/audios/Are%20you%20waiting%20for%20your%20mother.MP3";
+                
+                audio.play().then(() => {
+                    console.log("Audio iniciado correctamente");
+                }).catch(error => {
+                    showError("Error al reproducir: " + error.message);
+                });
+                
+            } catch (error) {
+                showError("Error: " + error.message);
+            }
+        }
+
+        function showError(message) {
+            alert("❌ " + message + "\n\nLee la nota al pie de página para solucionarlo");
+        }
+    </script>
+</body>
+</html>

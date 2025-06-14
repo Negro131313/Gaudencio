@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendizaje de Chino - Niveles HSK</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fff9c4; /* Amarillo opaco */
+            min-height: 100vh;
+            display: flex;
+            color: #5d4037;
+        }
+        
+        /* Panel de botones izquierdo */
+        .menu-lateral {
+            width: 250px;
+            background-color: #ffecb3; /* Amarillo un poco más oscuro */
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            padding: 20px 0;
+            box-shadow: 3px 0 10px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .titulo-menu {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 0 15px;
+        }
+        
+        .titulo-menu h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            color: #5d4037;
+        }
+        
+        .titulo-menu p {
+            font-size: 0.9rem;
+            color: #8d6e63;
+        }
+        
+        .botones-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .btn-nivel {
+            width: 80%;
+            padding: 15px 20px;
+            background-color: #ffd54f;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #5d4037;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .btn-nivel:hover {
+            background-color: #ffc107;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 8px rgba(0,0,0,0.15);
+        }
+        
+        .btn-nivel:active {
+            transform: translateY(0);
+        }
+        
+        /* Contenido principal */
+        .contenido-principal {
+            flex: 1;
+            margin-left: 250px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .bienvenida {
+            max-width: 700px;
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .bienvenida h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #5d4037;
+        }
+        
+        .bienvenida p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: #6d4c41;
+        }
+        
+        .emoji {
+            font-size: 4rem;
+            margin: 30px 0;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .consejo {
+            font-style: italic;
+            background-color: #fff8e1;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #ffc107;
+            margin-top: 20px;
+        }
+        
+        /* Diseño responsive */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            
+            .menu-lateral {
+                position: relative;
+                width: 100%;
+                height: auto;
+                padding: 15px 0;
+            }
+            
+            .botones-container {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 0 10px;
+            }
+            
+            .btn-nivel {
+                width: 45%;
+                font-size: 1rem;
+                padding: 12px;
+            }
+            
+            .contenido-principal {
+                margin-left: 0;
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Menú lateral con botones -->
+    <div class="menu-lateral">
+        <div class="titulo-menu">
+            <h1>汉语学习</h1>
+            <p>Aprendizaje de Chino</p>
+        </div>
+        
+        <div class="botones-container">
+            <button class="btn-nivel" onclick="cargarPagina('frases12.html')">HSK 1</button>
+            <button class="btn-nivel" onclick="cargarPagina('frases11.html')">HSK 2</button>
+            <button class="btn-nivel" onclick="cargarPagina('frases13.html')">HSK 3</button>
+            <button class="btn-nivel" onclick="cargarPagina('frases14.html')">HSK 4</button>
+            <button class="btn-nivel" onclick="cargarPagina('frases15.html')">HSK 5</button>
+            <button class="btn-nivel" onclick="cargarPagina('frases16.html')">HSK 6</button>
+        </div>
+    </div>
+    
+    <!-- Contenido principal -->
+    <div class="contenido-principal">
+        <div class="bienvenida">
+            <h2>Bienvenido al Aprendizaje de Chino</h2>
+            <div class="emoji">📚 你好! 🎌</div>
+            <p>Selecciona un nivel HSK del menú lateral para comenzar a explorar frases y vocabulario en chino mandarín.</p>
+            <p>Cada nivel contiene las frases esenciales y el vocabulario necesario para progresar en tu aprendizaje del idioma chino.</p>
+            
+            <div class="consejo">
+                <strong>Consejo:</strong> Comienza con HSK 1 si eres principiante, y avanza gradualmente a niveles superiores.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function cargarPagina(pagina) {
+            // Carga la página especificada en la MISMA ventana
+            window.location.href = pagina;
+        }
+    </script>
+</body>
+</html>
