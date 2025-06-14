@@ -1,178 +1,213 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Frases en Chino</title>
-   <!-- Añade el elemento audio -->
-    <audio id="background-music" autoplay loop>
-        <source src="shang.MP3" type="audio/mpeg">
-        Tu navegador no soporta el elemento de audio.
-    </audio>
-  <style>
-        /* Estilo para ocultar el reproductor de audio */
-        #background-music {
-            display: none;
-        }
-
-        body {
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #b2babb; 
-        }
-        /* ... (el resto de tus estilos permanece igual) ... */
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendizaje de Chino - Niveles HSK</title>
     <style>
-        body {
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fff9c4; /* Amarillo opaco */
             min-height: 100vh;
             display: flex;
-            justify-content: center;
+            color: #5d4037;
+        }
+        
+        /* Panel de botones izquierdo */
+        .menu-lateral {
+            width: 250px;
+            background-color: #ffecb3; /* Amarillo un poco más oscuro */
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            padding: 20px 0;
+            box-shadow: 3px 0 10px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            background: #b2babb; 
         }
-
-        .container {
+        
+        .titulo-menu {
             text-align: center;
-            width: 80%;
+            margin-bottom: 30px;
+            padding: 0 15px;
         }
-
-        #mandarin-text {
-            font-size: 34px;
+        
+        .titulo-menu h1 {
+            font-size: 1.8rem;
             margin-bottom: 5px;
+            color: #5d4037;
         }
-
-        #pinyin-text {
-            font-size: 18px;
-            color: #666;
-            margin-bottom: 10px;
+        
+        .titulo-menu p {
+            font-size: 0.9rem;
+            color: #8d6e63;
         }
-
-        #translation {
-            font-size: 20px;
-            color: #ff0000;
-            opacity: 0;
-            transition: opacity 0.3s;
-            margin-top: 5px;
-            white-space: pre-wrap;
+        
+        .botones-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
         }
-
-        #translation.show {
-            opacity: 1;
-        }
-
-        .barra-texto {
+        
+        .btn-nivel {
             width: 80%;
-            padding: 12px 20px;
-            margin: 50px auto;
-            display: block;
-            border: 2px solid #e0e0e0;
-            border-radius: 25px;
-            font-size: 16px;
-            outline: none;
-            transition: border-color 0.3s;
+            padding: 15px 20px;
+            background-color: #ffd54f;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #5d4037;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+            text-align: center;
         }
-
-        .barra-texto:focus {
-            border-color: #a0a0a0;
+        
+        .btn-nivel:hover {
+            background-color: #ffc107;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 8px rgba(0,0,0,0.15);
         }
-
-        .verde {
-            border-color: green !important;
+        
+        .btn-nivel:active {
+            transform: translateY(0);
         }
-
-        .rojo {
-            border-color: red !important;
+        
+        /* Contenido principal */
+        .contenido-principal {
+            flex: 1;
+            margin-left: 250px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .bienvenida {
+            max-width: 700px;
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .bienvenida h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #5d4037;
+        }
+        
+        .bienvenida p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: #6d4c41;
+        }
+        
+        .emoji {
+            font-size: 4rem;
+            margin: 30px 0;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .consejo {
+            font-style: italic;
+            background-color: #fff8e1;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #ffc107;
+            margin-top: 20px;
+        }
+        
+        /* Diseño responsive */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            
+            .menu-lateral {
+                position: relative;
+                width: 100%;
+                height: auto;
+                padding: 15px 0;
+            }
+            
+            .botones-container {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 0 10px;
+            }
+            
+            .btn-nivel {
+                width: 45%;
+                font-size: 1rem;
+                padding: 12px;
+            }
+            
+            .contenido-principal {
+                margin-left: 0;
+                padding: 30px 20px;
+            }
         }
     </style>
 </head>
 <body>
-          <!-- Tu contenido aquí -->
-
-
-    <div class="container">
-        <input type="text" class="barra-texto" placeholder="Traduce aquí..." id="traductor-input">
-        <div id="mandarin-text"></div>
-        <div id="pinyin-text"></div>
-        <div id="translation"></div>
+    <!-- Menú lateral con botones -->
+    <div class="menu-lateral">
+        <div class="titulo-menu">
+            <h1>汉语学习</h1>
+            <p>Aprendizaje de Chino</p>
+        </div>
+        
+        <div class="botones-container">
+            <button class="btn-nivel" onclick="cargarPagina('frases12.html')">HSK 1</button>
+            <button class="btn-nivel" onclick="cargarPagina('frases11.html')">HSK 2</button>
+            <button class="btn-nivel" onclick="cargarPagina('frases13.html')">HSK 3</button>
+            <button class="btn-nivel" onclick="cargarPagina('frases14.html')">HSK 4</button>
+            <button class="btn-nivel" onclick="cargarPagina('frases15.html')">HSK 5</button>
+            <button class="btn-nivel" onclick="cargarPagina('frases16.html')">HSK 6</button>
+        </div>
+    </div>
+    
+    <!-- Contenido principal -->
+    <div class="contenido-principal">
+        <div class="bienvenida">
+            <h2>Bienvenido al Aprendizaje de Chino</h2>
+            <div class="emoji">📚 你好! 🎌</div>
+            <p>Selecciona un nivel HSK del menú lateral para comenzar a explorar frases y vocabulario en chino mandarín.</p>
+            <p>Cada nivel contiene las frases esenciales y el vocabulario necesario para progresar en tu aprendizaje del idioma chino.</p>
+            
+            <div class="consejo">
+                <strong>Consejo:</strong> Comienza con HSK 1 si eres principiante, y avanza gradualmente a niveles superiores.
+            </div>
+        </div>
     </div>
 
-
-    <script src="progreso.js"></script>
-
-      <script>
-
-        // ▼▼▼ CÓDIGO DE LA APLICACIÓN ▼▼▼
-        const mandarinText = document.getElementById('mandarin-text');
-        const pinyinText = document.getElementById('pinyin-text');
-        const translation = document.getElementById('translation');
-        const input = document.getElementById('traductor-input');
-        let currentPhrase = null;
-        const tiempoEspera = 1000;
-
-        function mostrarNuevaFrase() {
-            input.value = "";
-            input.classList.remove('verde', 'rojo');
-            translation.classList.remove('show');
-            currentPhrase = Frases.obtenerAleatoria();
-            mandarinText.textContent = currentPhrase.mandarin;
-            pinyinText.textContent = currentPhrase.pinyin;
-            translation.textContent = "";
+    <script>
+        function cargarPagina(pagina) {
+            // Carga la página especificada en la MISMA ventana
+            window.location.href = pagina;
         }
-
-        input.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter') {
-                const progreso = Progresso.cargar();
-                const respuesta = input.value.trim().toLowerCase();
-                const correcta = currentPhrase.spanish.trim().toLowerCase();
-
-                if (respuesta === correcta) {
-                    const contadorActual = (progreso[currentPhrase.mandarin] || 0) + 1;
-                    progreso[currentPhrase.mandarin] = contadorActual;
-                    input.classList.add('verde');
-                    translation.textContent = `${currentPhrase.spanish} (${contadorActual}/5) ✅`;
-                    
-                    if (contadorActual === 5) {
-                        translation.textContent += '\n¡Dominada! 🎉';
-                    }
-                } else {
-                    progreso[currentPhrase.mandarin] = 0;
-                    input.classList.add('rojo');
-                    translation.textContent = `${currentPhrase.spanish} ❌ (Reiniciado a 0)`;
-                }
-
-                Progresso.guardar(progreso);
-                translation.classList.add('show');
-                setTimeout(mostrarNuevaFrase, tiempoEspera);
-            }
-        });
-
-        mostrarNuevaFrase();
     </script>
-      <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const audio = document.getElementById('background-music');
-    const input = document.getElementById('traductor-input');
-
-    let musicaYaActivada = false;
-
-    function intentarReproducirMusica() {
-        if (!musicaYaActivada) {
-            audio.play().then(() => {
-                musicaYaActivada = true;
-                console.log("🎵 Música activada con la interacción");
-            }).catch(error => {
-                console.warn("No se pudo activar la música:", error);
-            });
-        }
-    }
-
-    // Reproduce la música al hacer clic o escribir en la barra de texto
-    input.addEventListener('focus', intentarReproducirMusica);
-    input.addEventListener('keydown', intentarReproducirMusica);
-});
-</script>
 </body>
 </html>
